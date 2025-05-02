@@ -12,27 +12,29 @@
 
 <div class="container py-5 text-center">
     <h1>Photograph Jim Trick</h1>
-    <p>Professional photography of events, portraits and individual photo sessions</p>
+    <p>Professional photography of events, portraits and individual photo sessions.</p>
+    <p>< You can order photo session lower ></p>
 
     <img src="{% static 'img/photo.jpg' %}" class="img-fluid my-4" alt="photo">
 
     <button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#orderModal">Order</button>
 
     <h3 class="mt-5">Feedbacks</h3>
-    <button class="btn btn-secondary mt-3" data-bs-toggle="modal" data-bs-target="#feedbackModal">Leave Feedback</button>    <div class="feedbacks-container">
-        <div class="feedbacks-container">
-            {% for f in feedbacks %}
-                <div class="feedback-item" id="feedback-{{ forloop.counter }}">
-                    <blockquote class="blockquote">
-                        <p class="mb-0">“{{ f.text }}”</p>
-                    </blockquote>
-                    <footer class="blockquote-footer">{{ f.name }}</footer>
-                </div>
-            {% endfor %}
-        </div>
+    <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#feedbackModal">Leave Feedback</button>
+
+    <div class="feedbacks-container">
+        {% for f in feedbacks %}
+            <div class="feedback-item">
+                <blockquote class="blockquote">
+                    <p>“{{ f.text }}”</p>
+                </blockquote>
+                <footer class="blockquote-footer">{{ f.name }}</footer>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
-<!-- MODAL -->
+<!-- MODAL Order -->
 <div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -58,13 +60,12 @@
           <div id="orderMessage" class="mt-3"></div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Send</button>
+          <button type="submit" class="btn btn-primary">Send</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
 
 <!-- MODAL Feedback -->
 <div class="modal fade" id="feedbackModal" tabindex="-1" aria-hidden="true">
@@ -87,13 +88,12 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Send</button>
+          <button type="submit" class="btn btn-primary">Send</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{% static 'js/order.js' %}"></script>

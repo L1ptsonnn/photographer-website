@@ -1,7 +1,6 @@
-/* Фон з лініями */
 .bg-lines {
     position: relative;
-    height: 300px; /* Можна налаштувати висоту за потребою */
+    height: 300px;
     background: linear-gradient(0deg, rgba(0,0,0,0.1) 1px, transparent 1px) 0 0,
                 linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px) 0 0;
     background-size: 100% 30px, 30px 100%;
@@ -9,37 +8,39 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 10px;
     margin: 20px 0;
+    animation: pulse 2s infinite ease-in-out;
 }
 
-/* Контейнер для відгуків */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
 .feedbacks-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     gap: 20px;
-    flex-wrap: wrap;
     margin-top: 40px;
 }
 
-/* Стиль для кожного відгуку */
 .feedback-item {
     background-color: #f8f9fa;
     border-left: 5px solid #0d6efd;
     border-radius: 12px;
     padding: 30px;
-    width: 100%; /* для мобільних */
+    width: 100%;
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     font-size: 18px;
     margin-bottom: 30px;
     transition: all 0.3s ease;
 }
 
-/* Ховер ефект для відгуків */
 .feedback-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0,0,0,0.25);
 }
 
-/* Текст відгуку */
 .feedback-item blockquote {
     font-size: 20px;
     color: #333;
@@ -47,26 +48,11 @@
     font-style: italic;
 }
 
-/* Автор відгуку */
 .feedback-item footer {
     margin-top: 15px;
     font-size: 16px;
     color: #777;
 }
-
-/* Адаптивність для великих екранів */
-@media (min-width: 768px) {
-    .feedback-item {
-        width: 48%; /* 2 елементи в ряд */
-    }
-}
-
-@media (min-width: 1200px) {
-    .feedback-item {
-        width: 30%; /* 3 елементи в ряд */
-    }
-}
-
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -80,9 +66,8 @@ h1, h3 {
     font-weight: bold;
 }
 
-/* Покращена кнопка "Замовити" */
 .btn-primary {
-    background-color: #0d6efd;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
     border: none;
     padding: 12px 24px;
     font-size: 18px;
@@ -94,18 +79,16 @@ h1, h3 {
     letter-spacing: 1px;
     position: relative;
     overflow: hidden;
-    color: white; /* Колір тексту */
+    color: white;
 }
 
-/* Ховер для кнопки */
 .btn-primary:hover {
-    background-color: #0b5ed7;
+    background: linear-gradient(90deg, #009ee0, #0057cc);
     transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    color: white; /* Текст не змінюється на ховері */
+    color: white;
 }
 
-/* Додаткові ефекти для кнопки */
 .btn-primary::before {
     content: '';
     position: absolute;
@@ -120,13 +103,11 @@ h1, h3 {
     transform: translate(-50%, -50%) scale(0);
 }
 
-/* Легкий ефект при ховері */
 .btn-primary:hover::before {
     transform: translate(-50%, -50%) scale(1);
-    background-color: rgba(255, 255, 255, 0.2); /* Легкий білий ефект */
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Блоки відгуків */
 blockquote {
     border-left: 5px solid #0d6efd;
     padding-left: 15px;
@@ -141,7 +122,6 @@ blockquote footer {
     color: #777;
 }
 
-/* Модальне вікно */
 .modal-content {
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
@@ -160,7 +140,6 @@ blockquote footer {
     border-bottom-right-radius: 15px;
 }
 
-/* Стилі для зображень */
 img {
     max-width: 100%;
     height: auto;
@@ -175,7 +154,7 @@ img:hover {
     transform: scale(1.05);
 }
 
-/* Розмір і відступи */
+
 .container {
     padding: 30px 15px;
 }
@@ -191,7 +170,6 @@ p {
     color: #555;
 }
 
-/* Загальний стиль для тексту */
 .text-center {
     text-align: center;
 }
@@ -200,7 +178,6 @@ p {
     margin-bottom: 1rem;
 }
 
-/* Стилі для форми */
 form {
     padding: 20px;
     background-color: #f9f9f9;
@@ -223,16 +200,64 @@ form input, form textarea {
 }
 
 form button {
-    background-color: #28a745;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 form button:hover {
-    background-color: #218838;
+    background: linear-gradient(90deg, #009ee0, #0057cc);
+}
+
+.btn-secondary,
+.btn-success {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    color: white;
+    padding: 12px 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: transform 0.4s ease;
+}
+
+.btn-secondary:hover,
+.btn-success:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #009ee0, #0057cc);
+}
+
+.btn-secondary::after,
+.btn-success::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.btn-secondary:hover::after,
+.btn-success:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+textarea.form-control {
+    font-size: 16px;
+    resize: vertical;
+}
+
+@keyframes buttonPress {
+    0% { transform: scale(1); }
+    100% { transform: scale(0.95); }
 }
