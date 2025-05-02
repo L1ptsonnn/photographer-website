@@ -18,19 +18,19 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     if (response.status === 'ok') {
-                        alert('Your order has been sent!');
+                        alert('Your order sent!');
                         $('#orderForm')[0].reset();
                         $('#orderModal').modal('hide');
                     } else {
-                        alert('Error! Something went wrong!');
+                        alert('Something went wrong!');
                     }
                 },
                 error: function () {
-                    alert('An error occurred while submitting the order.');
+                    alert('Error occurred by submitting order.');
                 }
             });
         } else {
-            alert('Please fill in all fields!');
+            alert('Please fill fields!');
         }
     });
 });
