@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Order
+from .models import Order, Feedback
 from django.views import View
 
 
@@ -19,3 +19,15 @@ class OrderCreateView(View):
             return JsonResponse({'status': 'ok', 'message': 'Your order has been sent!'})
         else:
             return JsonResponse({'status': 'fail', 'message': 'Please fill in all fields!'}, status=400)
+
+
+class FeedbackCreateView(View):
+    def post(self, request, *args, **kwargs):
+        name = request.POST.get('name')
+        text = request.POST.get('text')
+
+        if name and text:
+            feedback = Feedback.objects.create(name=name, text=text)
+            return JsonResponse({'status': 'ok', 'name': name, 'text': text})
+        else:
+            return JsonResponse({'status': 'fail', 'errors': 'Missing fields'}, status=400)
