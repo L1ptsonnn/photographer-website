@@ -261,3 +261,19 @@ textarea.form-control {
     0% { transform: scale(1); }
     100% { transform: scale(0.95); }
 }
+
+.order-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #1e90ff;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  z-index: 999;
+}
